@@ -1,0 +1,9 @@
+# Function dependencies, for example:
+# package>=version
+pandas
+pandas
+numpy
+google-cloud-aiplatform
+scikit-learn
+google
+pyarrow
