@@ -101,7 +101,11 @@ def fraud_data_generation(n):
         # Data payload
         tmp = {
             "timestamp": str(datetime.datetime.now()),
-            "transaction_id": "T" + str(''.join(random.choices(string.ascii_uppercase, k = 5))) + str(datetime.datetime.now().timestamp())[0: 10],
+            "transaction_id": "T" 
+                + str(''.join(random.choices(string.ascii_uppercase, k = 3))) 
+                + str(datetime.datetime.now().timestamp())[0: 4]
+                + str(''.join(random.choices(string.ascii_uppercase, k = 2))) 
+                + str(datetime.datetime.now().timestamp())[4: 10],
             "step": random.randint(1, 800),
             "type": type_trans,
             "amount": int(amount),
