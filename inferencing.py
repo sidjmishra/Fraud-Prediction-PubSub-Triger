@@ -16,10 +16,6 @@ def inferencing_record(record):
     endpoint = vertex_ai.Endpoint(endpoint_info.resource_name)
     print(endpoint)
 
-    defect_classfication = endpoint.predict(
-        [
-            record,
-        ]
-    )
+    defect_classfication = endpoint.predict(record)
     
-    return defect_classfication.predictions[0]
+    return defect_classfication.predictions
