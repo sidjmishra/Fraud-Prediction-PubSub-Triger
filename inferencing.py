@@ -18,8 +18,4 @@ def inferencing_record(record):
 
     defect_classfication = endpoint.predict(record)
     
-<<<<<<< HEAD
     return defect_classfication.predictions
-=======
-    return defect_classfication.predictions
->>>>>>> 93521ecae49ff0b3d64cd2a079bbdab816584de2
