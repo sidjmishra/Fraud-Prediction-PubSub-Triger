@@ -1,3 +1,5 @@
+# For Data Simulation
+
 from faker import Faker
 from faker.providers import DynamicProvider
 import random
@@ -127,8 +129,8 @@ def fraud_data_generation(n):
     return data
 
 def publish_pubsub(message):
-    project_id = "idea-ind-data-ai-dev"
-    topic_id = "dummy-data"
+    project_id = "PROJECT-ID"
+    topic_id = "TOPIC-ID"
 
     publisher = pubsub_v1.PublisherClient()
     topic_path = publisher.topic_path(project_id, topic_id)
@@ -140,8 +142,8 @@ def publish_pubsub(message):
     print(future.result())
 
 def recieve_pubsub():
-    project_id = "idea-ind-data-ai-dev"
-    subscription_id = "dummy-data-sub"
+    project_id = "PROJECT-ID"
+    subscription_id = "SUBSCRIPTION-ID"
 
     subscriber = pubsub_v1.SubscriberClient()
     subscription_path = subscriber.subscription_path(project_id, subscription_id)
@@ -161,13 +163,13 @@ def callback(message: pubsub_v1.subscriber.message.Message) -> None:
 
 def main():
     print("Generating dummy data")
-    m = fraud_data_generation(1)
+    m = fraud_data_generation(100)
     print("Publishing pubsub message")
-    # publish_pubsub(m)
-    for i in m:
-        print(i)
-        publish_pubsub(i)
-        time.sleep(2)
+    publish_pubsub(m)
+    print(m)
+    # for i in m:
+        # publish_pubsub(i)
+        # time.sleep(2)
     recieve_pubsub()
 
 if __name__ == '__main__':
