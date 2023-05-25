@@ -161,13 +161,13 @@ def callback(message: pubsub_v1.subscriber.message.Message) -> None:
 
 def main():
     print("Generating dummy data")
-    m = fraud_data_generation(1)
+    m = fraud_data_generation(100)
     print("Publishing pubsub message")
-    # publish_pubsub(m)
-    for i in m:
-        print(i)
-        publish_pubsub(i)
-        time.sleep(2)
+    publish_pubsub(m)
+    print(m)
+    # for i in m:
+        # publish_pubsub(i)
+        # time.sleep(2)
     recieve_pubsub()
 
 if __name__ == '__main__':
