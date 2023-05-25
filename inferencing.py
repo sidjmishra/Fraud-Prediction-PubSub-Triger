@@ -2,9 +2,9 @@ from google.cloud import aiplatform as vertex_ai
 import numpy as np
 
 def inferencing_record(record):
-    project = 'idea-ind-data-ai-dev'
-    region = "us-central1"
-    endpoint_display_name = 'fraud_detect_model_ep1'
+    project = 'PROJECT-ID'
+    region = "REGION-NAME"
+    endpoint_display_name = 'ENDPOINT-NAME'
 
     vertex_ai.init(project=project, location=region)
 
@@ -18,4 +18,8 @@ def inferencing_record(record):
 
     defect_classfication = endpoint.predict(record)
     
+<<<<<<< HEAD
     return defect_classfication.predictions
+=======
+    return defect_classfication.predictions
+>>>>>>> 93521ecae49ff0b3d64cd2a079bbdab816584de2
